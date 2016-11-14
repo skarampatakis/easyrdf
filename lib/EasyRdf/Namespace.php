@@ -142,7 +142,7 @@ class EasyRdf_Namespace
             );
         }
 
-        if (preg_match('/\W/', $prefix)) {
+        if (preg_match('/\W\-/', $prefix)) {
             throw new InvalidArgumentException(
                 "\$prefix should only contain alpha-numeric characters"
             );
