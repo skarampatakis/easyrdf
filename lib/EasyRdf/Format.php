@@ -603,6 +603,11 @@ EasyRdf_Format::register(
 );
 
 EasyRdf_Format::register(
+    'csv',
+    'CSV'
+);
+
+EasyRdf_Format::register(
     'n3',
     'Notation3',
     'http://www.w3.org/2000/10/swap/grammar/n3#',
@@ -692,6 +697,7 @@ EasyRdf_Format::registerSerialiser('ntriples', 'EasyRdf_Serialiser_Ntriples');
 EasyRdf_Format::registerSerialiser('php', 'EasyRdf_Serialiser_RdfPhp');
 EasyRdf_Format::registerSerialiser('rdfxml', 'EasyRdf_Serialiser_RdfXml');
 EasyRdf_Format::registerSerialiser('turtle', 'EasyRdf_Serialiser_Turtle');
+EasyRdf_Format::registerSerialiser('csv', 'EasyRdf_Serialiser_CSV');
 
 EasyRdf_Format::registerSerialiser('dot', 'EasyRdf_Serialiser_GraphViz');
 EasyRdf_Format::registerSerialiser('gif', 'EasyRdf_Serialiser_GraphViz');
