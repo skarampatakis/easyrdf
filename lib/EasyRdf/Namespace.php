@@ -339,7 +339,7 @@ class EasyRdf_Namespace
         if ($createNamespace) {
             // Try and create a new namespace
             # FIXME: check the valid characters for an XML element name
-            if (preg_match('/^(.+?)([\w\-]+)$/', $uri, $matches)) {
+            if (preg_match('/^(.+?)([\w\-\.]+)$/', $uri, $matches)) {
                 $prefix = "ns".(self::$anonymousNamespaceCount++);
                 self::set($prefix, $matches[1]);
                 return array($prefix, $matches[2]);
