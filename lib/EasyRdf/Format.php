@@ -604,7 +604,12 @@ EasyRdf_Format::register(
 
 EasyRdf_Format::register(
     'csv',
-    'CSV'
+    'CSV',
+    'https://tools.ietf.org/html/rfc4180',
+    array(
+        'text/csv' => 0.8,
+    ),
+    array('csv')
 );
 
 EasyRdf_Format::register(
