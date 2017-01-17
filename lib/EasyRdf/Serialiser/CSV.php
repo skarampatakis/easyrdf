@@ -207,7 +207,7 @@ class EasyRdf_Serialiser_CSV extends EasyRdf_Serialiser
                     foreach ($values as $value) {
                         $csv .= "\"" . $this->serialiseResource($resource). "\",";
                         $csv .= "\"" . $this->escapeString($property) . "\",";
-                        $csv .= "\"" . $this->serialiseValue($value)."\" .\n";
+                        $csv .= "\"" . $this->serialiseValue($value)."\"\n";
                     }
                 }
             }
