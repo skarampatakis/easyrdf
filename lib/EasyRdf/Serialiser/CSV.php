@@ -202,12 +202,14 @@ class EasyRdf_Serialiser_CSV extends EasyRdf_Serialiser
 
         if ($format == 'csv') {
             $csv = '';
+            //header
+            $csv = '"subject","property,"object"\r\n';
             foreach ($graph->toRdfPhp() as $resource => $properties) {
                 foreach ($properties as $property => $values) {
                     foreach ($values as $value) {
                         $csv .= "\"" . $this->serialiseResource($resource). "\",";
                         $csv .= "\"" . $this->escapeString($property) . "\",";
-                        $csv .= "\"" . $this->serialiseValue($value)."\"\n";
+                        $csv .= "\"" . $this->serialiseValue($value)."\"\r\n";
                     }
                 }
             }
