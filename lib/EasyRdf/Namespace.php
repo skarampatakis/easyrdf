@@ -322,11 +322,11 @@ class EasyRdf_Namespace
         }
 
         foreach (self::namespaces() as $prefix => $long) {
-            if (substr($uri, 0, strlen($long)) !== $long) {
+            if (mb_substr($uri, 0, strlen($long)) !== $long) {
                 continue;
             }
 
-            $local_part = substr($uri, strlen($long));
+            $local_part = mb_substr($uri, strlen($long));
 
             if (strpos($local_part, '/') !== false) {
                 // we can't have '/' in local part
@@ -343,6 +343,14 @@ class EasyRdf_Namespace
                 $prefix = "ns".(self::$anonymousNamespaceCount++);
                 self::set($prefix, $matches[1]);
                 return array($prefix, $matches[2]);
+            }
+            else{
+                $last = strrpos($uri, '/');
+                $local_part = mb_substr($uri, $last + 1);
+                $long = mb_substr($uri, 0, strrpos($uri, '/')+1);
+                $prefix = "ns".(self::$anonymousNamespaceCount++);                
+                self::set($prefix, $long);
+                return array($prefix, $local_part);
             }
         }
 
